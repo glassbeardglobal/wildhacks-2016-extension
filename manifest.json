@@ -13,13 +13,14 @@
 
   "permissions": [
     "activeTab",
-    "https://*/",
+    "https://*/*",
+    "http://*/*",
     "tabs"
   ],
 
   "background": {
-    "scripts": ["node_modules/jquery/dist/jquery.js", "background.js"],
-    "persistent": false
+    "scripts": ["jquery-3.1.1.min.js", "background.js"],
+    "persistent": true
   }
 
 }
