@@ -6,7 +6,6 @@ $(function() {
         var arrayOfSites = $('#blacklist').value.split('\n');
         //post
         sendSites(arrayOfSites);
-        sendCCInfo()
 
     });
     //create single use token using Stripe
@@ -53,8 +52,10 @@ function sendSites(arrayOfSites) {
 
     var id = getCookie("id");
     var url = 'https://sjback.herokuapp.com/api/users/' + id;
-    //waiting on JJ
-    $.post(url, )
+    for (int i = 0; i < arrayOfSites.length; i++) {
+        var data = {userid: id, site: arrayOfSites[i]}
+        $.post(url, data)
+    }
 }
 
 function getCookie(cname) {
@@ -74,7 +75,7 @@ function getCookie(cname) {
 
 function getSettings() {
     //get id from cookies
-    var id =
+    var id = getCookie('id');
     val url = 'https://sjback.herokuapp.com/api/users/' + id;
     $.get(url, function(data) {
         //update all the fields in settings with fields from data
