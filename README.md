@@ -1,1 +1,1 @@
-# wildhacks-2016-frontend
+# wildhacks-2016-extension
