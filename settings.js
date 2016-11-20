@@ -1,6 +1,7 @@
 //read line by line
 $(function() {
     //populate textarea with array from db
+    getSettings();
     $('#saveButton').click(function() {
         var arrayOfSites = $('#blacklist').val().split('\n');
         //post
@@ -72,12 +73,19 @@ function getCookie(cname) {
     return "";
 }
 */
+
 function getSettings() {
     //get id from cookies
     var id = '58311c2c6a7d0000120e1b55';
     var url = 'https://sjback.herokuapp.com/api/users/' + id;
     $.get(url, function(data) {
         //update all the fields in settings with fields from data
+        console.log(data)
+        var blacklisted = data.user.blacklisted;
+        for (var key in blacklisted) {
+            $('#blacklist').val($('#blacklist').val() + key + '\n');
+        }
+
     });
 
 }

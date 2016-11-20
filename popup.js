@@ -16,6 +16,13 @@ $(function() {
                 url: chrome.extension.getURL('settings.html')
             });
     })
+
+    $('#Redirect').click(function() {
+        chrome.tabs.create({
+            url: 'https://sjback.herokuapp.com/landing'
+        })
+    })
+
 });
 
 function AddToBlacklist(domain) {
