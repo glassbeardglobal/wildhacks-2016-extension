@@ -50,7 +50,7 @@ function sendSites(arrayOfSites) {
     //get user ID from cookie
 
     //testing, otherwise, use getCookie(id);
-    var id = '58311c2c6a7d0000120e1b55';
+    var id = '5831a8584847640012afb70e';
     var url = 'https://sjback.herokuapp.com/api/users/blacklist';
     for (var i = 0; i < arrayOfSites.length; i++) {
         var data = {userid: id, site: arrayOfSites[i]}
@@ -76,7 +76,7 @@ function getCookie(cname) {
 
 function getSettings() {
     //get id from cookies
-    var id = '58311c2c6a7d0000120e1b55';
+    var id = '5831a8584847640012afb70e';
     var url = 'https://sjback.herokuapp.com/api/users/' + id;
     $.get(url, function(data) {
         //update all the fields in settings with fields from data

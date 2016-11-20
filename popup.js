@@ -28,6 +28,6 @@ $(function() {
 function AddToBlacklist(domain) {
     //TODO change URL
     var url = "https://sjback.herokuapp.com/api/users/blacklist";
-    var data = {userid:'58311c2c6a7d0000120e1b55', site: domain};
+    var data = {userid:'5831a8584847640012afb70e', site: domain};
     $.post(url, data);
 }

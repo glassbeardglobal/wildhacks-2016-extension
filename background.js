@@ -2,16 +2,15 @@ $(function() {
     chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
         if (changeInfo.url != undefined) {
             //grab domain
-            var url = new URL(changeInfo.url)
+            var url = new URL(changeInfo.url);
             var domain = url.hostname;
             sendDomain(domain);
         }
     });
-});
-
+})
 function sendDomain(domain) {
     //hardcode for testing
-    var id = '58311c2c6a7d0000120e1b55';
+    var id = '5831a8584847640012afb70e';
     var url = 'https://sjback.herokuapp.com/api/users/addpage';
     var data = {userid: id, site: domain};
     $.post(url, data)
