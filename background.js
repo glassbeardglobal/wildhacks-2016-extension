@@ -4,14 +4,14 @@ $(function() {
             //grab domain
             var url = new URL(changeInfo.url)
             var domain = url.hostname;
-            //send domain
             sendDomain(domain);
         }
     });
 });
 
 function sendDomain(domain) {
-    var id = '5830ff9bdfb9ec0012df1536';
+    //hardcode for testing
+    var id = '58311c2c6a7d0000120e1b55';
     var url = 'https://sjback.herokuapp.com/api/users/addpage';
     var data = {userid: id, site: domain};
     $.post(url, data)

@@ -1,0 +1,146 @@
+body {
+    font-family: sans-serif;
+    font-size: 1em;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+/**
+ * Snooze Buttons Layout
+ */
+
+#snooze-buttons {
+    width: 270px;
+    height: 270px;
+    border-collapse: collapse;
+}
+
+#snooze-buttons td {
+    width: 90px;
+    height: 90px;
+    border: 1px solid #E2E6E6;
+    vertical-align: middle;
+}
+
+#snooze-buttons tr:first-child td {
+    border-top: 0;
+}
+
+#snooze-buttons tr:last-child {
+    border-bottom: 0;
+}
+
+#snooze-buttons tr td:first-child {
+    border-left: 0;
+}
+
+#snooze-buttons tr td:last-child {
+    border-right: 0;
+}
+
+#snooze-buttons button {
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+    color: #9FA6A8;
+
+    border: none;
+    padding: 0 0.2em;
+}
+
+#snooze-buttons button:hover, #pick-date:active {
+    background-color: #F6F8F8;
+}
+
+#snooze-buttons button:active:not(#pick-date) {
+    background-color: #FED23B;
+    color: white;
+}
+
+#snooze-buttons button .button-image {
+    height: 40px;
+    width: 40px;
+
+    display: block;
+    margin: 6px auto;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+}
+
+/**
+ * Snooze Buttons Custom
+ */
+#BlacklistButton .button-image {
+    background-image: url("/icons/blacklist.png");
+}
+#Settings .button-image {
+    background-image: url("/icons/settings.png");
+}
+#Redirect .button-image {
+    background-image: url("/icons/redirect.png")
+}
+
+/*#pick-date:active .button-image {
+    background-image: url("/assets/icons/white/pick-date.png");
+}*/
+
+/**
+ * Calendar
+ */
+/**
+ * Status Bar
+ */
+
+#status-bar {
+    overflow: auto;
+    padding: 0.8em 0.6em;
+
+    font-size: 0.7em;
+    line-height: 1.5em;
+}
+
+#default-status {
+    float: left;
+}
+
+#default-status button {
+    border: 0;
+    background: none;
+    outline: 0;
+}
+
+#default-status button:hover {
+    text-decoration: underline;
+}
+
+#snoozed-status {
+    display: none;
+}
+
+#settings {
+    background: url("/assets/icons/options.svg") no-repeat scroll 0 0 transparent;
+    background-size: 1.4em 1.4em;
+
+    width: 1.5em;
+    height: 1.5em;
+    border: none;
+
+    float: right;
+    padding: 0px;
+
+    opacity: 0.7;
+    transition: opacity 0.2s ease-out;
+}
+
+#settings:hover {
+    opacity: 1.0;
+}
