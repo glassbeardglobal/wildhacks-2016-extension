@@ -1,9 +1,8 @@
 //read line by line
 $(function() {
     //populate textarea with array from db
-    getSettings();
     $('#saveButton').click(function() {
-        var arrayOfSites = $('#blacklist').value.split('\n');
+        var arrayOfSites = $('#blacklist').val().split('\n');
         //post
         sendSites(arrayOfSites);
 
@@ -22,7 +21,6 @@ $(function() {
         return false;
         });
     });
-
 })
 function stripeResponseHandler(status, response) {
   // Grab the form:
@@ -50,14 +48,15 @@ function stripeResponseHandler(status, response) {
 function sendSites(arrayOfSites) {
     //get user ID from cookie
 
-    var id = getCookie("id");
-    var url = 'https://sjback.herokuapp.com/api/users/' + id;
-    for (int i = 0; i < arrayOfSites.length; i++) {
+    //testing, otherwise, use getCookie(id);
+    var id = '5830ff9bdfb9ec0012df1536';
+    var url = 'https://sjback.herokuapp.com/api/users/blacklist';
+    for (var i = 0; i < arrayOfSites.length; i++) {
         var data = {userid: id, site: arrayOfSites[i]}
         $.post(url, data)
     }
 }
-
+/*
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -72,13 +71,13 @@ function getCookie(cname) {
     }
     return "";
 }
-
+*/
 function getSettings() {
     //get id from cookies
-    var id = getCookie('id');
-    val url = 'https://sjback.herokuapp.com/api/users/' + id;
+    var id = '5830ff9bdfb9ec0012df1536';
+    var url = 'https://sjback.herokuapp.com/api/users/' + id;
     $.get(url, function(data) {
         //update all the fields in settings with fields from data
-    }
+    });
 
 }

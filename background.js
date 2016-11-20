@@ -11,12 +11,12 @@ $(function() {
 });
 
 function sendDomain(domain) {
-    var id = getCookie('id');
+    var id = '5830ff9bdfb9ec0012df1536';
     var url = 'https://sjback.herokuapp.com/api/users/addpage';
     var data = {userid: id, site: domain};
     $.post(url, data)
 }
-
+/*
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -31,3 +31,4 @@ function getCookie(cname) {
     }
     return "";
 }
+*/
