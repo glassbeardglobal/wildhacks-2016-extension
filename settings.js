@@ -83,7 +83,8 @@ function getSettings() {
         console.log(data)
         var blacklisted = data.user.blacklisted;
         for (var key in blacklisted) {
-            $('#blacklist').val($('#blacklist').val() + key + '\n');
+            var str = key.replace(/%2E/g, '.');
+            $('#blacklist').val($('#blacklist').val() + str + '\n');
         }
 
     });
