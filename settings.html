@@ -1,60 +1,173 @@
-<html>
-    <head>
-        <title>Settings</title>
-        <script src="jquery-3.1.1.min.js" type='text/javascript'></script>
-        <script src="settings.js" type='text/javascript'></script>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
 
-        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-
-        <script type="text/javascript">
-            <!-- change the KEY!!! -->
-          Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
-        </script>
-    </head>
+    <title>Responsive Side Menu &ndash; Layout Examples &ndash; Pure</title>
 
 
-    <body>
 
-        <h1>Blacklist</h1>
-        <textarea id="blacklist" rows="10" cols="50"></textarea>
 
-        <button id="saveButton">Save</button>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <form action="/your-charge-code" method="POST" id="payment-form">
-          <span class="payment-errors"></span>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-          <div class="form-row">
-            <label>
-              <span>Card Number</span>
-              <input type="text" size="20" data-stripe="number">
-            </label>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+<script type="text/javascript">
+    <!-- change the KEY!!! -->
+  Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+</script>
+<script src="settings.js" type="text/javascript"></script>
+
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/layouts/side-menu-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="css/layouts/side-menu.css">
+    <!--<![endif]-->
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <a class="pure-menu-heading" href="#">Swear Jar</a>
+
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">General settings</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
+
+                <li class="pure-menu-item" class="menu-item-divided pure-menu-selected">
+                    <a href="#" class="pure-menu-link">Services</a>
+                </li>
+
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main" style="overflow-x: hidden">
+        <div class="header">
+            <h1>General Settings</h1>
+        </div>
+
+        <div class="content">
+            <h2 class="content-subhead">Edit Blacklisted Websites</h2>
+            <p>
+                <textarea id="blacklist" rows="10" cols="50"></textarea>
+            </p>
+            <button type="button" class="btn btn-success" id="saveButton">Save</button>
+
+
+            <h2 class="content-subhead">Credit Card Information</h2>
+            <div class="container">
+
+
+  <form class="form-horizontal" role="form" action="/CHANGURL" method="POST" id="payment-form">
+    <fieldset>
+
+      <div class="form-group">
+        <div class="col-xs-9">
+          <input type="text" class="form-control" id="card-holder-name" placeholder="Card Holder's Name" data-stripe="name">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-9">
+          <input type="text" class="form-control" id="card-number" placeholder="Debit/Credit Card Number" data-stripe="number">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-9">
+          <div class="row">
+            <div class="col-xs-3">
+              <select class="form-control col-sm-2" id="expiry-month" data-stripe="exp_month">
+                <option>Month</option>
+                <option value="01">Jan (01)</option>
+                <option value="02">Feb (02)</option>
+                <option value="03">Mar (03)</option>
+                <option value="04">Apr (04)</option>
+                <option value="05">May (05)</option>
+                <option value="06">June (06)</option>
+                <option value="07">July (07)</option>
+                <option value="08">Aug (08)</option>
+                <option value="09">Sep (09)</option>
+                <option value="10">Oct (10)</option>
+                <option value="11">Nov (11)</option>
+                <option value="12">Dec (12)</option>
+              </select>
+            </div>
+            <div class="col-xs-3">
+              <select class="form-control" data-stripe="exp_year">
+                <option value="13">2013</option>
+                <option value="14">2014</option>
+                <option value="15">2015</option>
+                <option value="16">2016</option>
+                <option value="17">2017</option>
+                <option value="18">2018</option>
+                <option value="19">2019</option>
+                <option value="20">2020</option>
+                <option value="21">2021</option>
+                <option value="22">2022</option>
+                <option value="23">2023</option>
+              </select>
+            </div>
           </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-3">
+          <input type="text" class="form-control" id="cvv" placeholder="Security Code" data-stripe="cvc">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <button type="button" class="btn btn-success" id="CCButton">Save</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
 
-          <div class="form-row">
-            <label>
-              <span>Expiration (MM/YY)</span>
-              <input type="text" size="2" data-stripe="exp_month">
-            </label>
-            <span> / </span>
-            <input type="text" size="2" data-stripe="exp_year">
-          </div>
 
-          <div class="form-row">
-            <label>
-              <span>CVC</span>
-              <input type="text" size="4" data-stripe="cvc">
-            </label>
-          </div>
+        </div>
+    </div>
+</div>
 
-          <div class="form-row">
-            <label>
-              <span>Billing Zip</span>
-              <input type="text" size="6" data-stripe="address_zip">
-            </label>
-          </div>
 
-          <input type="submit" class="submit" value="Submit Payment">
-        </form>
-    </body>
 
+
+
+<script src="js/ui.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</body>
 </html>
