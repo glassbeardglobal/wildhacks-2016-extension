@@ -19,7 +19,7 @@ $(function() {
 
     $('#Redirect').click(function() {
         chrome.tabs.create({
-            url: 'https://sjback.herokuapp.com/landing'
+            url: 'https://sjback.herokuapp.com/demo'
         })
     })
 
